@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link rel="icon" type="image/x-icon" href="images/favicon.png" />
+<title>Kiaan - Bold Strategy. Explosive Growth</title>
+<style>
+    :root {
+      --primary: #2B2D42;
+      --accent: #EF233C;
+      --bg: #F8F9FA;
+      --text: #1A1A1A;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    .logo {
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+.logo:hover {
+  transform: scale(1.1) rotate(-2deg);
+}
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+
+    .hero {
+      background: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    .hero p {
+      margin: 1.5rem 0;
+      font-size: 1.2rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .service {
+      background: white;
+      padding: 2rem;
+      border-left: 5px solid var(--accent);
+      border-radius: 8px;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+  
+#loader {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: white;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid var(--accent);
+  border-radius: 50%;
+  width: 60px; height: 60px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.divider {
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  margin: 60px auto;
+  opacity: 0.5;
+  border-radius: 5px;
+}
+
+.navbar {
+  animation: fadeSlideDown 0.8s ease-in-out;
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+.bar {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 100%;
+    background-color: var(--primary);
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .nav-links a {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-active {
+    display: flex !important;
+  }
+}
+
+/* Hamburger animation */
+.hamburger.toggle .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.hamburger.toggle .bar:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.toggle .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+.bar {
+  transition: all 0.4s ease;
+}
+</style>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/></head>
+<body>
+<div id="loader">
+<div class="spinner"></div>
+</div>
+<header class="navbar" style="position: fixed; top: 0; width: 100%; z-index: 1000;">
+<div class="hamburger" onclick="toggleMenu()">
+<div class="bar"></div>
+<div class="bar"></div>
+<div class="bar"></div>
+</div>
+<img src="images/Just_kiaan.png" alt="Kiaan Logo" class="logo" />
+<nav class="nav-links"><a href="javascript:void(0);" onclick="scrollToTopSmooth();">Home</a>
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+<section class="hero" style="margin-top: 100px;">
+<h2>Helping Indian Brands Grow Creatively</h2>
+<p>Your one-stop solution for digital marketing, personal branding, and social media strategy.</p>
+<a class="btn-primary" href="https://instagram.com/marketingkiaan" target="_blank">Get a Free Consultation</a>
+</section>
+<div class="divider"></div>
+<section class="section" data-aos="fade-up" id="services">
+<h3>Our Services</h3>
+<div class="services-grid">
+<div class="service">
+<h4>Instagram Marketing</h4>
+<p>Grow your reach and build your brand with custom Instagram content and strategy.</p>
+</div>
+<div class="service">
+<h4>Personal Branding</h4>
+<p>We help entrepreneurs and creators craft powerful personal brands.</p>
+</div>
+<div class="service">
+<h4>Consulting</h4>
+<p>1-on-1 strategy sessions to help you take the next step in your marketing journey.</p>
+</div>
+<div class="service">
+<h4>Content Creation</h4>
+<p>From carousels to reels, we handle the creative work that drives engagement.</p>
+</div>
+</div>
+</section>
+<div class="divider"></div>
+<section class="section" data-aos="fade-right" id="about">
+<h3>About Kiaan</h3>
+<p>Kiaan is a solo-driven creative marketing agency launched by Kaushik Mohanty, a TCS techie turned marketer. We're built to help Indian creators and businesses make meaningful digital impact—without the fluff.</p>
+</section>
+<div class="divider"></div>
+<section class="section" data-aos="fade-left" id="contact">
+<h3>Contact Us</h3>
+<section class="section" id="contact">
+  <p>
+    <i class="fab fa-instagram"></i>
+    <a href="https://instagram.com/marketingkiaan" target="_blank">@marketingkiaan</a>
+  </p>
+  <p>
+    <i class="fas fa-envelope"></i>
+    <a href="mailto:hello@kiaan.agency">marketingkiaan@gmail.com</a>
+  </p>
+</section>
+
+</section>
+<footer>
+<p>© 2025 Kiaan. All rights reserved.</p>
+</footer>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+</script>
+<script>
+  window.addEventListener("load", function () {
+    const loader = document.getElementById("loader");
+    loader.style.display = "none";
+  });
+</script>
+<script>
+  function scrollToTopSmooth() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger');
+    navLinks.classList.toggle('nav-active');
+    hamburger.classList.toggle('toggle');
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      const navLinks = document.querySelector('.nav-links');
+      const hamburger = document.querySelector('.hamburger');
+      if (navLinks.classList.contains('nav-active')) {
+        navLinks.classList.remove('nav-active');
+        hamburger.classList.remove('toggle');
+      }
+    });
+  });
+  document.addEventListener('contextmenu', function(e) {
+  e.preventDefault();
+});
+
+</script>
+
+</body>
+</html>
